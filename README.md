@@ -11,7 +11,7 @@ This application is built using Spring Boot and utilizes the GitHub REST API v3 
 
 **Request:**
 
-`GET /api/v1/github/users/{username}/repos`
+`GET /api/v1/github/repos/{username}`
 
 **Response:**
 
