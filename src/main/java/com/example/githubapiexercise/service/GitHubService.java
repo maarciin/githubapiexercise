@@ -22,7 +22,7 @@ public class GitHubService {
     }
 
     public List<ApiResponseRepoDto> listNonForkReposWithBranches(String username) {
-        List<ApiResponseRepoDto> repos = fetchNonForkRepos(username);
+        var repos = fetchNonForkRepos(username);
 
         return repos.stream()
                 .map(repo -> {

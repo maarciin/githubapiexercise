@@ -10,7 +10,7 @@ public class ApiExceptionHandler {
 
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<ApiResponseException> handleUserNotFountException(UserNotFoundException e) {
-        ApiResponseException response = new ApiResponseException(HttpStatus.NOT_FOUND.value(), e.getMessage());
+        var response = new ApiResponseException(HttpStatus.NOT_FOUND.value(), e.getMessage());
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 }
