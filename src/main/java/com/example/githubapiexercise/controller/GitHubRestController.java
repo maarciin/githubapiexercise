@@ -1,5 +1,6 @@
-package com.example.githubapiexercise.github;
+package com.example.githubapiexercise.controller;
 
+import com.example.githubapiexercise.service.GitHubService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,19 +8,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/api/v1/github")
 @RequiredArgsConstructor
-class GitHubRestController {
+public class GitHubRestController {
 
     private final GitHubService gitHubService;
 
-    @GetMapping("/users/{username}/repos")
-    public ResponseEntity<?> getUserRepos(@PathVariable String username) {
-        List<RepositoryInfo> repos = gitHubService.listNonForkRepos(username);
-        return ResponseEntity.ok(repos);
+    @GetMapping("/repos/{username}")
+    public ResponseEntity<?> getReposWithBranches(@PathVariable String username) {
+        return ResponseEntity.ok(gitHubService.listNonForkReposWithBranches(username));
     }
 
 }
